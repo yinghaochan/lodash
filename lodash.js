@@ -17059,7 +17059,12 @@
     // loaded by a script tag in the presence of an AMD loader.
     // See http://requirejs.org/docs/errors.html#mismatch for more details.
     // Use `_.noConflict` to remove Lodash from the global object.
-    root._ = _;
+    if (typeof root._ === 'undefined'){
+      root._ = _;
+    } else {
+      root.LEARNING_TO_CODE = _;
+    }
+    
 
     // Define as an anonymous module so, through path mapping, it can be
     // referenced as the "underscore" module.
